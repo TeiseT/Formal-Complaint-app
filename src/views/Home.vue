@@ -1,44 +1,40 @@
-
-
 <template>
   <div>
 
     <div class="home">
-        Name: <input type="text" ref="plaintiff"> 
-        Defendant:<input type="text" ref="defendant">
-        Description: <input type="text" ref="description">
-        <button type="button" @click="makeComplaint()">Complain</button>
+      <div class="header">
+         Monku!
+      </div>
+      <div id="info-container">
+          Welcome to Monku!
+
+          This is the place where 
+          writing formal complaints has 
+          never been easier.
+        </div>
+
+          <div id="initComplaint">
+             <a href="Step1.vue"><div>Start complaining</div></a>
+        </div>
     </div>
-  <div>{{complaint}} </div>
 
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    
   },
   data() {
     return {
-      complaint: {
-        plaintiff: "",
-        defendant: "",
-        description: ""
-      }
+    
     }
   },
   methods: {
-    makeComplaint() {
-     this.complaint.plaintiff = this.$refs.plaintiff.value
-     this.complaint.defendant = this.$refs.defendant.value
-     this.complaint.description = this.$refs.description.value
-
-    }
+   
   }
 }
 </script>
@@ -46,8 +42,37 @@ export default {
 <style scoped>
 .home {
   display: flex;
- justify-content: center;
- align-items: center;
- flex-direction: column;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+.header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 40px;
+  width: 30%;
+  border: 2px solid black;
+  border-radius: 50%;
+  padding:5px;
+}
+#info-container {
+  
+  height:40%;
+  width: 60%;
+  border: 2px solid pink;
+  padding:30px;
+}
+#initComplaint {
+  display: flex;
+    justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  height:60px;
+  width:50%;
+  border: 2px solid red;
+  border-radius: 50%;
 }
 </style>
