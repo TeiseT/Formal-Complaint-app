@@ -14,29 +14,20 @@
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+
 
 export default {
-  name: 'Home',
+  name: 'Step4',
   components: {
-    HelloWorld
+
   },
   data() {
     return {
-      complaint: {
-        plaintiff: "",
-        defendant: "",
-        description: ""
-      }
+
     }
   },
   methods: {
-    makeComplaint() {
-     this.complaint.plaintiff = this.$refs.plaintiff.value
-     this.complaint.defendant = this.$refs.defendant.value
-     this.complaint.description = this.$refs.description.value
 
-    }
   }
 }
 </script>

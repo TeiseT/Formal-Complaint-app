@@ -1,24 +1,29 @@
 <template>
-  <div>
 
     <div class="home">
+
       <div class="header">
          Monku!
       </div>
+        
       <div id="info-container">
-          Welcome to Monku!
 
-          This is the place where 
+          <p>Welcome to Monku!</p>
+
+          <p>This is the place where 
           writing formal complaints has 
-          never been easier.
-        </div>
+          never been easier.</p>
 
-          <div id="initComplaint">
-             <a href="Step1.vue"><div>Start complaining</div></a>
-        </div>
+      </div>
+
+      <div id="initComplaint">
+          <router-link to="/step1">
+              <div>Start complaining</div>
+          </router-link>
+      </div>
+
     </div>
 
-  </div>
 </template>
 
 <script>
@@ -46,7 +51,8 @@ export default {
   justify-content: space-evenly;
   align-items: center;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
+  border: 2px solid red
 }
 .header {
   display: flex;

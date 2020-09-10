@@ -1,15 +1,23 @@
 <template>
- <div>
+  <div class="home">
+    
+    <div id="backButton">
+      <router-link to="/home">
+        Back 
+      </router-link>
+    </div>
 
-    <div class="home">
-      Step 1. Who are you complaining to?
-      <div class="specifiedPaths">
-        <a href=" ">A Company</a>
-        </div>
-        or
-        <div class="specifiedPaths">
-        <a href=" ">A Person</a>
-        </div>
+    <div>
+      <p class="p">Step 1. </p>
+      <p class="p">Why are you writing this complaint?</p>
+    </div>
+    
+    <div>
+      <textarea id="step1Input" type="text" placeholder="type here"></textarea>
+    </div>
+
+    <div id="next">
+      <router-link to="/step2">Next</router-link>
     </div>
 
   </div>
@@ -36,13 +44,37 @@ export default {
 </script>
 
 <style scoped>
+.home{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 
-.specifiedPaths {
- display: flex;
- justify-content: center;
- align-items: center;
- height: 30%;
- width:60%;
- border:2px solid green;
 }
+#backButton {
+  margin: 40px;
+  margin-right: 290px;
+}
+.p {
+  margin: 20px;
+}
+#step1Input {
+  text-align: start;
+  height: 200px;
+  width: 250px;
+}
+#next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 100px;
+  border: 2px solid black;
+  margin: 50px;
+
+}
+
+
 </style>
