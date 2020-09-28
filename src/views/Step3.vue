@@ -1,23 +1,28 @@
+
 <template>
-  <div>
-
-    <div v-if="company" class="home">
-        <h1>Company</h1>
-        Name: <input type="text" ref="plaintiff"> 
-        Defendant:<input type="text" ref="defendant">
-        Description: <input type="text" ref="description">
-        <button type="button" @click="makeComplaint()">Complain</button>
+  <div class="home">
+    
+    <div id="backButton">
+      <router-link to="/step2">
+        Back 
+      </router-link>
     </div>
 
-    <div v-if="person" class="home">
-        <h1>Person</h1>
-        Name: <input type="text" ref="plaintiff"> 
-        Defendant:<input type="text" ref="defendant">
-        Description: <input type="text" ref="description">
-        <button type="button" @click="makeComplaint()">Complain</button>
+    <div>
+      <p class="p">Step 3. </p>
+      <p class="p">Why are you writing this complaint?</p>
+    </div>
+    
+    <div>
+      <textarea ref="step3Input" id="step3Input" type="text" placeholder="type here"></textarea>
     </div>
 
-    <!-- <div>{{complaint}} </div> -->
+    <div id="next">
+      <router-link to="/step4">
+      <button @click="saveInput()">
+        Next</button>
+      </router-link>
+    </div>
 
   </div>
 </template>
@@ -31,33 +36,57 @@ export default {
   components: {
 
   },
-  mounted() {
-    console.log(this.$route.params)
-
-  },
   data() {
     return {
+      compDesc: "",
       company: this.$route.params.company,
       person: this.$route.params.person,
-    
     }
   },
   methods: {
-    makeComplaint() {
-      const name = this.$refs.plaintiff.value
-      const defendant = this.$refs.defendant.value
-      const description = this.$refs.description.value
-
-    },
+    saveInput() {
+      const description = this.$refs.step2Input.value
+      this.compDesc= description
+      console.log(this.compDesc)
+      this.$router.push({ name: 'Step3', params: { compDesc: this.compDesc } })
+    }
   }
 }
 </script>
 
 <style scoped>
-.home {
+.home{
   display: flex;
- justify-content: center;
- align-items: center;
- flex-direction: column;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+
 }
+#backButton {
+  margin: 40px;
+  margin-right: 290px;
+}
+.p {
+  margin: 20px;
+}
+#step1Input {
+  text-align: start;
+  height: 200px;
+  width: 250px;
+}
+#next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 100px;
+  border: 2px solid black;
+  margin: 50px;
+
+}
+
+
 </style>
+

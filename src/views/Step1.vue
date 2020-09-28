@@ -1,23 +1,20 @@
 <template>
-  <div class="home">
-    
-    <div id="backButton">
-      <router-link to="/home">
+ <div>
+
+    <div class="home">
+       <div id="backButton">
+      <router-link to="/">
         Back 
       </router-link>
     </div>
+     <p id="p"> Step 1. Who are you complaining to?</p>
+      
+      <div class="specifiedPaths" @click="goToStep2('company')">A Company</div>
+      
+        or
 
-    <div>
-      <p class="p">Step 1. </p>
-      <p class="p">Why are you writing this complaint?</p>
-    </div>
-    
-    <div>
-      <textarea id="step1Input" type="text" placeholder="type here"></textarea>
-    </div>
+      <div class="specifiedPaths" @click="goToStep2('person')">A Person</div>
 
-    <div id="next">
-      <router-link to="/step2">Next</router-link>
     </div>
 
   </div>
@@ -34,47 +31,51 @@ export default {
   },
   data() {
     return {
-
+      compDesc: this.$route.params.compDesc
     }
   },
+  mounted() {
+    console.log("step 1 loaded with...")
+    console.log(this.compDesc)
+  },
   methods: {
-
+    goToStep2(companyOrPerson) {
+      if (companyOrPerson == "company") {
+        this.$router.push({ name: 'Step2', params: {company: true } })
+      } else if (companyOrPerson == "person") {
+        this.$router.push({ name: 'Step2', params: {person: true } })
+      }
+    }
   }
 }
 </script>
 
 <style scoped>
-.home{
-  display: flex;
+.home {
+  display:flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-evenly;
+  align-items:center;
   height: 100%;
   width: 100%;
 
 }
+
 #backButton {
   margin: 40px;
   margin-right: 290px;
 }
-.p {
+.specifiedPaths {
+  display: flex;
+  justify-content: space-evenly;
+  align-items:center;
+  text-align: center;
+  height: 100px;
+  width:70%;
+  margin: 40px;
+  border:2px solid green;
+}
+#p {
   margin: 20px;
 }
-#step1Input {
-  text-align: start;
-  height: 200px;
-  width: 250px;
-}
-#next {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
-  width: 100px;
-  border: 2px solid black;
-  margin: 50px;
-
-}
-
-
 </style>
