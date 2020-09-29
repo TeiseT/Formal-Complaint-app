@@ -1,21 +1,21 @@
 <template>
   <div>
-    <div id="backButton">
-      <router-link to="/step3">
+      <div id="backButton">
+      <router-link to="/step4">
         Back 
       </router-link>
     </div>
  <div class="home">
     <div id="header">
-      <h1 class="headerP">Company  </h1>
-      <h1>Step 4. </h1>
-      <h4 class="headerP">Who does the complaint involve?</h4>
+      <h1 class="headerP">Company </h1>
+        <h1>Step 5. </h1>
        </div>
-       <input id="inputBox" type="text" ref="input" placeholder="e.g name of seller"> 
+       <p class="p"> Enter location of problem </p> 
+       <input id="inputBox" type="text" ref="location" placeholder="type here"> 
       
     </div>
         <div class="nextButton">
-        <router-link to="/step5">
+        <router-link to="/step6">
           Next
         </router-link>
          </div> 
@@ -29,7 +29,7 @@
 
 
 export default {
-  name: 'Step4',
+  name: 'Step5',
   components: {
 
   },                                                                                     

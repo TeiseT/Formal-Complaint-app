@@ -1,25 +1,24 @@
 <template>
   <div>
-    <div id="backButton">
-      <router-link to="/step3">
+       <div id="backButton">
+      <router-link to="/step5">
         Back 
       </router-link>
     </div>
- <div class="home">
-    <div id="header">
-      <h1 class="headerP">Company  </h1>
-      <h1>Step 4. </h1>
-      <h4 class="headerP">Who does the complaint involve?</h4>
+   <div class="home">
+    <div>
+      <h1 class="p">Company </h1>
+      <h1>Step 6. </h1>
+      <p id="meh">What would you like to happen as a result of this letter?
+      Come up with a solution!</p>
        </div>
-       <input id="inputBox" type="text" ref="input" placeholder="e.g name of seller"> 
-      
+       <input id="inputBox" type="text" ref="resolution" placeholder="type here">   
     </div>
-        <div class="nextButton">
-        <router-link to="/step5">
+            <div class="nextButton">
+        <router-link to="/step7">
           Next
         </router-link>
          </div> 
-  
 
   </div>
 </template>
@@ -29,7 +28,7 @@
 
 
 export default {
-  name: 'Step4',
+  name: 'Step6',
   components: {
 
   },                                                                                     
@@ -48,7 +47,7 @@ export default {
 #backButton a {
   margin-top: 30px;
   margin-right: 290px;
-   text-decoration: none;
+  text-decoration: none;
 }
 .home {
   display: flex;
@@ -57,17 +56,17 @@ export default {
  flex-direction: column;
 }
 .p {
-  margin-top:30px;
-  font-size:18px;
+ margin-top:20px;
 }
-.headerP {
-  margin-top:60px;
+#meh {
+ margin-top:20px;
+ font-size:20px;
 }
 #inputBox {
-  height:40px;
-  width: 250px;
-  font-size:20px;
+  height:50px;
+  width:250px;
   margin-top:20px;
+  font-size:20px;
 }
 .nextButton{
   margin-top: 100px;

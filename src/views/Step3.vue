@@ -9,12 +9,12 @@
     </div>
 
     <div>
-      <p class="p">Step 3. </p>
-      <p class="p">Why are you writing this complaint?</p>
+      <h2 class="p">Step 3. </h2>
+      <h2 class="p">Why are you writing this complaint?</h2>
     </div>
     
     <div>
-      <textarea ref="step3Input" id="step3Input" type="text" placeholder="type here"></textarea>
+      <textarea id="inputBox" ref="step3Input"  type="text" placeholder="type here"></textarea>
     </div>
 
     <div id="next">
@@ -64,9 +64,10 @@ export default {
   width: 100%;
 
 }
-#backButton {
+#backButton a {
   margin: 40px;
   margin-right: 290px;
+   text-decoration: none;
 }
 .p {
   margin: 20px;
@@ -86,7 +87,11 @@ export default {
   margin: 50px;
 
 }
-
+#inputBox {
+  font-size: 20px;
+  height:100px;
+  width:300px;
+}
 
 </style>
 
