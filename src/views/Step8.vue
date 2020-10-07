@@ -45,7 +45,7 @@ export default {
       console.log(this.complaint);
       this.complaint.complaintResolution = this.$refs.resolution.value;
       this.$router.push({
-        name: "Step7",
+        name: "Step6",
         params: {
           complaint: this.complaint,
         },

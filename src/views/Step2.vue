@@ -11,19 +11,17 @@
      <h2>Step 2. </h2>
      <h2>Enter the date of when the problem began</h2>
       <input class="inputBox" type="date" ref="date">
+       <div class="nextButton" @click="next()">
+          Next        
+        </div> 
      </div>
-         <div class="nextButton" @click="next()">
-        
-          Next
-        
-         </div> 
+       
   </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-
 
 export default {
   name: 'Step2',
@@ -35,11 +33,14 @@ export default {
       complaint: this.$route.params.complaint
     }
   },
+  mounted() {
+    console.log(this.complaint)
+  },
   methods: {
     next() {
-      console.log("got to step 3")
+      console.log(this.complaint)
       this.complaint.complaintDate = this.$refs.date.value
-      this.$route.push({
+      this.$router.push({
         name: 'Step3',
         params: {
           complaint: this.complaint

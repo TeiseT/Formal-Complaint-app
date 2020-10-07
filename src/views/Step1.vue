@@ -6,10 +6,8 @@
       </router-link>
     </div>
      <h2 id="p"> Step 1. Who are you complaining to?</h2> <input class="inputBox" type="text" ref="name">
-    <div class="nextButton">
-        <router-link :to="{path:'/step2', params:{complaint:complaint}}">
+    <div class="nextButton" @click="saveStep1()">
           Next
-        </router-link>
          </div> 
    </div>
 </template>
@@ -26,7 +24,7 @@ export default {
   data() {
     return {
       complaint:{
-        complaintTo: this.$refs.name.value,
+        complaintTo: null,
         complaintDate: null,
         complaintLocation: null,
         complaintInvolves: null,
@@ -38,7 +36,22 @@ export default {
   },
   mounted() {
     console.log("step 1 loaded with...")
-  
+
+  },
+  methods: {
+    saveStep1() {
+      console.log("going to step2")
+      this.complaint.complaintTo = this.$refs.name.value
+          this.$router.push({
+        name: 'Step2',
+        params: {
+          complaint: this.complaint
+        }
+      })
+      //:to="{path:'/step2', params:{complaint:complaint}}"
+      //the first step save name.value into complaint > complaintTo
+      //2nd route to step 2 passing complaint as a parameter
+    }
   }
 
 }

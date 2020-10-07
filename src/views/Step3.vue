@@ -14,15 +14,13 @@
     </div>
     
     <div>
-      <textarea id="inputBox" ref="step3Input"  type="text" placeholder="type here"></textarea>
-    </div>
-
-    <div id="next">
-      <router-link to="/step4">
+      <textarea id="inputBox" ref="desc"  type="text" placeholder="type here"></textarea>
+          <div id="next">
       <button @click="saveInput()">
         Next</button>
-      </router-link>
     </div>
+    </div>
+
 
   </div>
 </template>
@@ -38,17 +36,19 @@ export default {
   },
   data() {
     return {
-      compDesc: "",
-      company: this.$route.params.company,
-      person: this.$route.params.person,
+      complaint: this.$route.params.complaint
     }
   },
   methods: {
     saveInput() {
-      const description = this.$refs.step2Input.value
-      this.compDesc= description
-      console.log(this.compDesc)
-      this.$router.push({ name: 'Step3', params: { compDesc: this.compDesc } })
+      console.log(this.complaint)
+      this.complaint.complaintDesc = this.$refs.desc.value
+      this.$router.push({
+        name: 'Step4',
+        params: {
+          complaint: this.complaint
+        }
+      })
     }
   }
 }

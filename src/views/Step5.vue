@@ -12,13 +12,13 @@
        </div>
        <p class="p"> Enter location of problem </p> 
        <input id="inputBox" type="text" ref="location" placeholder="type here"> 
-      
-    </div>
-        <div class="nextButton">
-        <router-link to="/step6">
-          Next
-        </router-link>
+         <div class="nextButton">
+          <button @click="saveInput()">
+             Next
+        </button>
          </div> 
+    </div>
+     
   
 
   </div>
@@ -35,11 +35,20 @@ export default {
   },                                                                                     
   data() {
     return {
-
+       complaint: this.$route.params.complaint
     }
   },
   methods: {
-
+    saveInput() {
+      console.log(this.complaint)
+      this.complaint.complaintLocation = this.$refs.location.value
+      this.$router.push({
+        name: 'Step6',
+        params: {
+          complaint: this.complaint
+        }
+      })
+    }
   }
 }
 </script>

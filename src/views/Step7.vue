@@ -1,49 +1,50 @@
 <template>
   <div>
-       <div id="backButton">
+    <div id="backButton">
       <router-link to="/step6">
-        Back 
+        Back
       </router-link>
     </div>
-   <div class="home">
-    <div>
-      <h1 class="p">Company </h1>
-      <h1>Step 7. </h1>
-      <p id="meh">Lastly, what is your name?</p>
-       </div>
-       <input id="inputBox" type="text" ref="plaintiff" placeholder="e.g Ian">   
+    <div class="home">
+      <div>
+        <h1 class="p">Company</h1>
+        <h1>Step 7.</h1>
+        <p id="meh">Lastly, what is your name?</p>
+      </div>
+      <input id="inputBox" type="text" ref="from" placeholder="e.g Ian" />
     </div>
-            <!--  <div class="nextButton">
-      <router-link to="/step">
-          Next
-        </router-link>
-         </div> -->
-<!-- <button type="button" @click="makeComplaint()">Complain</button>-->
+    <div class="nextButton">
+      <button @click="saveInput()">
+        Next
+      </button>
+    </div>
   </div>
-    <!-- <div>{{complaint}} </div> -->
 </template>
 
 <script>
 // @ is an alias to /src
 
-
 export default {
-  name: 'Step7',
-  components: {
-
-  },                                                                                     
+  name: "Step7",
+  components: {},
   data() {
     return {
-
-    }
+      complaint: this.$route.params.complaint,
+    };
   },
   methods: {
-    // makeComplaint() {
-    //   const name = this.$refs.plaintiff.value
-
-    // },
-  }
-}
+    saveInput() {
+      console.log(this.complaint);
+      this.complaint.complaintFrom = this.$refs.from.value;
+      this.$router.push({
+        name: "Step8",
+        params: {
+          complaint: this.complaint,
+        },
+      });
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -54,24 +55,24 @@ export default {
 }
 .home {
   display: flex;
- justify-content: center;
- align-items: center;
- flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .p {
- margin-top:20px;
+  margin-top: 20px;
 }
 #meh {
- margin-top:20px;
- font-size:20px;
+  margin-top: 20px;
+  font-size: 20px;
 }
 #inputBox {
-  height:50px;
-  width:250px;
-  margin-top:20px;
-  font-size:20px;
+  height: 50px;
+  width: 250px;
+  margin-top: 20px;
+  font-size: 20px;
 }
-.nextButton{
+.nextButton {
   margin-top: 100px;
 }
 </style>
