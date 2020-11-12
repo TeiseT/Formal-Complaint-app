@@ -8,7 +8,7 @@ import Step4 from '../views/Step4.vue'
 import Step5 from '../views/Step5.vue'
 import Step6 from '../views/Step6.vue'
 import Step7 from '../views/Step7.vue'
-import Step8 from '../views/Step7.vue'
+import Step8 from '../views/Step8.vue'
 Vue.use(VueRouter)
 
   const routes = [

@@ -11,7 +11,7 @@
         <h1>Step 5.</h1>
       </div>
       <p class="p">Enter location of problem</p>
-      <input id="inputBox" type="text" ref="location" placeholder="type here" />
+      <input id="inputBox" type="text" ref="location" placeholder="type here" :value="complaint.complaintLocation"/>
       <div class="nextButton">
         <button @click="saveInput()">
           Next
@@ -29,18 +29,28 @@
     components: {},
     data() {
       return {
-        complaint: this.$route.params.complaint
+        // complaint: this.$route.params.complaint
+              complaint: {
+          complaintTo: localStorage.getItem("complaintTo"),
+          complaintDate: localStorage.getItem("complaintDate"),
+          complaintLocation: localStorage.getItem("complaintLocation"),
+          complaintInvolves: localStorage.getItem("complaintInvolves"),
+          complaintDesc: localStorage.getItem("complaintDesc"),
+          complaintResolution: null,
+          complaintFrom: null
+        }
       };
     },
     methods: {
       saveInput() {
         console.log(this.complaint);
-        this.complaint.complaintLocation = this.$refs.location.value;
+        // this.complaint.complaintLocation = this.$refs.location.value;
+        localStorage.setItem("complaintLocation", this.$refs.location.value)
         this.$router.push({
           name: "Step6",
-          params: {
-            complaint: this.complaint
-          }
+          // params: {
+          //   complaint: this.complaint
+          // }
         });
       }
     }

@@ -6,7 +6,7 @@
       </router-link>
     </div>
     <h2 id="p">Step 1. Who are you complaining to?</h2>
-    <input class="inputBox" type="text" ref="name" />
+    <input class="inputBox" type="text" ref="name" :value="complaint.complaintTo" />
     <div class="nextButton" @click="saveStep1()">
       Next
     </div>
@@ -22,7 +22,7 @@
     data() {
       return {
         complaint: {
-          complaintTo: null,
+          complaintTo: localStorage.getItem("complaintTo"),
           complaintDate: null,
           complaintLocation: null,
           complaintInvolves: null,
