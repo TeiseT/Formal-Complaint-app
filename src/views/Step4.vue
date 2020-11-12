@@ -11,7 +11,7 @@
       <h1>Step 4. </h1>
       <h4 class="headerP">Who does the complaint involve?</h4>
        </div>
-       <input id="inputBox" type="text" ref="involves" placeholder="e.g name of seller"> 
+       <input id="inputBox" type="text" ref="involves" placeholder="e.g name of seller" :value="complaint.complaintInvolves"> 
           <div class="nextButton">
            <button @click="saveInput()">
         Next</button>
@@ -35,18 +35,28 @@ export default {
   },                                                                                     
   data() {
     return {
-      complaint: this.$route.params.complaint
+      // complaint: this.$route.params.complaint
+         complaint: {
+          complaintTo: localStorage.getItem("complaintTo"),
+          complaintDate: localStorage.getItem("complaintDate"),
+          complaintLocation: localStorage.getItem("complaintDesc"),
+          complaintInvolves: localStorage.getItem("complaintInvolves"),
+          complaintDesc: null,
+          complaintResolution: null,
+          complaintFrom: null
+        }
     }
   },
   methods: {
     saveInput() {
       console.log(this.complaint)
-      this.complaint.complaintInvolves = this.$refs.involves.value
+      // this.complaint.complaintInvolves = this.$refs.involves.value
+      localStorage.setItem("complaintInvolves", this.$refs.involves.value)
       this.$router.push({
         name: 'Step5',
-        params: {
-          complaint: this.complaint
-        }
+        // params: {
+        //   complaint: this.complaint
+        // }
       })
     }
   }

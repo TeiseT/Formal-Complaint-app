@@ -1,90 +1,87 @@
 <template>
-    <div class="home">
-       <div id="backButton">
+  <div class="home">
+    <div id="backButton">
       <router-link class="noLine" to="/">
-        Back 
+        Back
       </router-link>
     </div>
-     <h2 id="p"> Step 1. Who are you complaining to?</h2> <input class="inputBox" type="text" ref="name">
+    <h2 id="p">Step 1. Who are you complaining to?</h2>
+    <input class="inputBox" type="text" ref="name" />
     <div class="nextButton" @click="saveStep1()">
-          Next
-         </div> 
-   </div>
+      Next
+    </div>
+  </div>
 </template>
 
 <script>
-// @ is an alias to /src
+  // @ is an alias to /src
 
+  export default {
+    name: "Step1",
+    components: {},
+    data() {
+      return {
+        complaint: {
+          complaintTo: null,
+          complaintDate: null,
+          complaintLocation: null,
+          complaintInvolves: null,
+          complaintDesc: null,
+          complaintResolution: null,
+          complaintFrom: null
+        }
+      };
+    },
+    mounted() {
+      console.log("step 1 loaded with...");
+    },
+    methods: {
+      saveStep1() {
+        console.log("going to step2");
 
-export default {
-  name: 'Step1',
-  components: {
+        // this.complaint.complaintTo = this.$refs.name.value;
+        localStorage.setItem("complaintTo", this.$refs.name.value);
 
-  },
-  data() {
-    return {
-      complaint:{
-        complaintTo: null,
-        complaintDate: null,
-        complaintLocation: null,
-        complaintInvolves: null,
-        complaintDesc: null,
-        complaintResolution: null,
-        complaintFrom: null,
+        this.$router.push({
+          name: "Step2",
+          // params: {
+          //   complaint: this.complaint
+          // }
+        });
+        //:to="{path:'/step2', params:{complaint:complaint}}"
+        //the first step save name.value into complaint > complaintTo
+        //2nd route to step 2 passing complaint as a parameter
       }
     }
-  },
-  mounted() {
-    console.log("step 1 loaded with...")
-
-  },
-  methods: {
-    saveStep1() {
-      console.log("going to step2")
-      this.complaint.complaintTo = this.$refs.name.value
-          this.$router.push({
-        name: 'Step2',
-        params: {
-          complaint: this.complaint
-        }
-      })
-      //:to="{path:'/step2', params:{complaint:complaint}}"
-      //the first step save name.value into complaint > complaintTo
-      //2nd route to step 2 passing complaint as a parameter
-    }
-  }
-
-}
+  };
 </script>
 
 <style scoped>
-.home {
-  display:flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items:center;
-  height: 100vh;
-  width: 100vw;
+  .home {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+  }
+  .noLine {
+    position: fixed;
+    top: 50px;
+    left: 50px;
+    text-decoration: none;
+  }
 
-}
-.noLine {
-  position: fixed;
-  top: 50px;
-  left: 50px;
-  text-decoration: none;
-}
+  #backButton {
+    margin: 40px;
+    margin-right: 290px;
+  }
 
-#backButton {
-  margin: 40px;
-  margin-right: 290px;
-}
-
-
-.nextButton {
-  margin-top: 20px;
-}
-.inputBox{
-  height:50px;
-  width:300px;
-}
+  .nextButton {
+    margin-top: 20px;
+  }
+  .inputBox {
+    height: 50px;
+    width: 300px;
+  }
 </style>

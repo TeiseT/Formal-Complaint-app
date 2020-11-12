@@ -30,57 +30,57 @@
 </template>
 
 <script>
-// @ is an alias to /src
+  // @ is an alias to /src
 
-export default {
-  name: "Step6",
-  components: {},
-  data() {
-    return {
-      complaint: this.$route.params.complaint,
-    };
-  },
-  methods: {
-    saveInput() {
-      console.log(this.complaint);
-      this.complaint.complaintResolution = this.$refs.resolution.value;
-      this.$router.push({
-        name: "Step7",
-        params: {
-          complaint: this.complaint,
-        },
-      });
+  export default {
+    name: "Step6",
+    components: {},
+    data() {
+      return {
+        complaint: this.$route.params.complaint
+      };
     },
-  },
-};
+    methods: {
+      saveInput() {
+        console.log(this.complaint);
+        this.complaint.complaintResolution = this.$refs.resolution.value;
+        this.$router.push({
+          name: "Step7",
+          params: {
+            complaint: this.complaint
+          }
+        });
+      }
+    }
+  };
 </script>
 
 <style scoped>
-#backButton a {
-  margin-top: 30px;
-  margin-right: 290px;
-  text-decoration: none;
-}
-.home {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.p {
-  margin-top: 20px;
-}
-#meh {
-  margin-top: 20px;
-  font-size: 20px;
-}
-#inputBox {
-  height: 50px;
-  width: 250px;
-  margin-top: 20px;
-  font-size: 20px;
-}
-.nextButton {
-  margin-top: 100px;
-}
+  #backButton a {
+    margin-top: 30px;
+    margin-right: 290px;
+    text-decoration: none;
+  }
+  .home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .p {
+    margin-top: 20px;
+  }
+  #meh {
+    margin-top: 20px;
+    font-size: 20px;
+  }
+  #inputBox {
+    height: 50px;
+    width: 250px;
+    margin-top: 20px;
+    font-size: 20px;
+  }
+  .nextButton {
+    margin-top: 100px;
+  }
 </style>
